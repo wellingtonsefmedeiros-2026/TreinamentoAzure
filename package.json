@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "playwright": "^1.57"
+  },
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "playwright test --ui",
+    "report": "allure serve allure-results",
+    "test:clean": "rimraf test-results allure-results allure-report playwright-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57",
+    "@types/node": "^24.10.1",
+    "allure-js-commons": "^3.4.3",
+    "allure-playwright": "^3.4.3",
+    "typescript": "^5.9.3"
+  }
+}

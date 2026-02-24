@@ -1,0 +1,87 @@
+{
+  "compilerOptions": {
+    // Versão do JavaScript gerado
+    "target": "ES2017",
+    "module": "commonjs",
+    "lib": ["ES2017", "DOM"],
+
+    // Resolução de módulos
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    
+    // Type Checking - STRICT para archetype
+    "strict": true,                           // ✅ Ativa todas as verificações estritas
+    "noImplicitAny": true,                    // ✅ Proíbe 'any' implícito
+    "strictNullChecks": true,                 // ✅ null/undefined explícitos
+    "strictFunctionTypes": true,              // ✅ Verifica tipos de funções
+    "strictBindCallApply": true,              // ✅ Verifica bind/call/apply
+    "strictPropertyInitialization": true,     // ✅ Propriedades devem ser inicializadas
+    "noImplicitThis": true,                   // ✅ 'this' deve ter tipo explícito
+    "alwaysStrict": true,                     // ✅ 'use strict' em todos os arquivos
+
+    // Verificações adicionais
+    "noUnusedLocals": true,                   // ✅ Erro se variável não usada
+    "noUnusedParameters": true,               // ✅ Erro se parâmetro não usado
+    "noImplicitReturns": true,                // ✅ Funções devem retornar em todos os caminhos
+    "noFallthroughCasesInSwitch": true,       // ✅ Switch deve ter break
+    "noUncheckedIndexedAccess": true,         // ✅ Acesso a arrays/objetos mais seguro
+    "allowUnreachableCode": false,            // ✅ Erro em código inacessível
+
+    // Interoperabilidade
+    "allowSyntheticDefaultImports": true,     // ✅ Permite import default em módulos sem export default
+    "forceConsistentCasingInFileNames": true, // ✅ Diferencia maiúsculas/minúsculas
+    "skipLibCheck": true,                     // ✅ Pula verificação de .d.ts (performance)
+
+    // Source Maps e Debugging
+    "sourceMap": true,                        // ✅ Gera source maps para debug
+    "declaration": false,                     // ❌ Não precisa gerar .d.ts
+    "declarationMap": false,
+
+    // Output
+    "outDir": "./dist",                       // ✅ Onde ficaria JS compilado (não usado pelo Playwright)
+    "noEmit": true,                           // ✅ Não gera arquivos JS (Playwright compila on-the-fly)
+    "removeComments": true,                   // ✅ Remove comentários do JS gerado
+
+    // Experimental
+    "experimentalDecorators": true,           // ✅ Para usar decorators (se precisar)
+    "emitDecoratorMetadata": true,
+
+    // Path Mapping (aliases) - Facilita imports
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@steps/*": ["steps/*"],
+      "@support/*": ["support/*"],
+      "@tests/*": ["tests/*"]
+    }
+  },
+
+  // Arquivos incluídos na compilação
+  "include": [
+    "tests/**/*",
+    "pages/**/*",
+    "selectors/**/*",
+    "steps/**/*",
+    "support/**/*",
+    "playwright.config.ts"
+  ],
+
+  // Arquivos excluídos
+  "exclude": [
+    "node_modules",
+    "dist",
+    "playwright-report",
+    "test-results",
+    "allure-results",
+    "allure-report"
+  ],
+
+  // Configurações específicas do Playwright
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}
